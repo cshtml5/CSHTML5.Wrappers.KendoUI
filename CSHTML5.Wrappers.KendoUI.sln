@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Common", "CSHTML5.Wrappers.KendoUI.Common\CSHTML5.Wrappers.KendoUI.Common.csproj", "{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Grid", "CSHTML5.Wrappers.KendoUI.Grid\CSHTML5.Wrappers.KendoUI.Grid.csproj", "{93EB26C0-B6AB-4E64-9642-12A499F53F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Editor", "CSHTML5.Wrappers.KendoUI.Editor\CSHTML5.Wrappers.KendoUI.Editor.csproj", "{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EB26C0-B6AB-4E64-9642-12A499F53F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EB26C0-B6AB-4E64-9642-12A499F53F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EB26C0-B6AB-4E64-9642-12A499F53F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EB26C0-B6AB-4E64-9642-12A499F53F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
