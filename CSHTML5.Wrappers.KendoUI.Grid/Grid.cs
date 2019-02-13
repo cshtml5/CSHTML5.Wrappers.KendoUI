@@ -70,7 +70,7 @@ namespace kendo_ui_grid.kendo.ui
             else
             {
                 MessageBox.Show(@"Before you can use the Kendo Grid Control, you must add to your project the corresponding libraries.
-To do so, please follow the tutorial at: http://TheAddressOfTheTutorial."); //todo: put the address of the tutorial.
+To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put the address of the tutorial.
                 base.AbortLoading();
             }
         }
