@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
+    <DocumentationFile>bin\Debug\CSHTML5.Wrappers.KendoUI.Common.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bridge.json" />
+    <None Include="NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Common.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\packages\CSHTML5.2.0.0-alpha17-030\build\CSHTML5.targets" Condition="Exists('..\packages\CSHTML5.2.0.0-alpha17-030\build\CSHTML5.targets')" />
