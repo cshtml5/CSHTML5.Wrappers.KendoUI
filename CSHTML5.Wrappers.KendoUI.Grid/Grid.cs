@@ -12,9 +12,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using TypeScriptDefinitionsSupport;
+#if SLMIGRATION
+using System.Windows.Data;
+#else
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
+#endif
 using CSHTML5.Wrappers.KendoUI.Grid;
 
 namespace kendo_ui_grid.kendo.ui
@@ -61,7 +65,11 @@ namespace kendo_ui_grid.kendo.ui
                     },
                     js: new Interop.ResourceFile[]
                     {
-                        new Interop.ResourceFile("jQuery", "ms-appx:///CSHTML5.Wrappers.KendoUI.Grid/scripts/jquery.min.js"),
+#if SLMIGRATION
+                        new Interop.ResourceFile("jQuery", "ms-appx:///CSHTML5.Migration.Wrappers.KendoUI.Grid/scripts/jquery.min.js"),
+#else
+                        new Interop.ResourceFile("jQuery", "ms-appx:///CSHTML5.Wrappers.KendoUI.Editor/scripts/jquery.min.js"),
+#endif
                         new Interop.ResourceFile("kendo", Configuration.LocationOfKendoAllJS) // e.g. "ms-appx:///CSHTML5.Wrappers.KendoUI.Grid/scripts/kendo.all.min.js"
                     }
                 );
@@ -189,15 +197,15 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
             if (oldValue != newValue)
             {
                 await @this.JSInstanceLoaded;
+                
+                    @this.setDataSource(new DataSource(new DataSourceOptions()
+                    {
+                        data = Utils.ToJSObject(e.NewValue)
+                    }));
+                    @this.dataBinder.UpdateTarget(oldValue, newValue);
+                    @this.RemoveOldColumns();
 
-                @this.setDataSource(new DataSource(new DataSourceOptions()
-                {
-                    data = Utils.ToJSObject(e.NewValue)
-                }));
-                @this.dataBinder.UpdateTarget(oldValue, newValue);
-                @this.RemoveOldColumns();
-
-                @this.firstDataLoad = false;
+                    @this.firstDataLoad = false;
             }
         }
 

@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TypeScriptDefinitionsSupport;
+using System.Windows;
+#if SLMIGRATION
+#else
 using Windows.UI.Xaml;
+#endif
 using CSHTML5.Wrappers.KendoUI.Editor;
 
 namespace kendo_ui_editor.kendo.ui
@@ -34,7 +38,11 @@ namespace kendo_ui_editor.kendo.ui
                     },
                     js: new Interop.ResourceFile[]
                     {
+#if SLMIGRATION
+                        new Interop.ResourceFile("jQuery", "ms-appx:///CSHTML5.Migration.Wrappers.KendoUI.Grid/scripts/jquery.min.js"),
+#else
                         new Interop.ResourceFile("jQuery", "ms-appx:///CSHTML5.Wrappers.KendoUI.Editor/scripts/jquery.min.js"),
+#endif
                         new Interop.ResourceFile("kendo", Configuration.LocationOfKendoAllJS) // e.g. "ms-appx:///CSHTML5.Wrappers.KendoUI.Editor/scripts/kendo.all.min.js"
                     }
                 );
