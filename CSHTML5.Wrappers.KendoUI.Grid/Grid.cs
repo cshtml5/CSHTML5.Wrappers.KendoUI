@@ -25,10 +25,10 @@ namespace kendo_ui_grid.kendo.ui
 {
     public partial class Grid : JSComponent, IItemsSourceHolder
     {
+        bool _isInstanceLoaded = false;
         public static Configuration Configuration = new Configuration();
 
         static JSLibrary _jsLibrary;
-
         public override JSLibrary JSLibrary { get { return _jsLibrary; } }
 
         public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
@@ -77,6 +77,8 @@ namespace kendo_ui_grid.kendo.ui
             }
             else
             {
+                this.Html = @"Before you can use the Kendo Grid Control, you must add to your project the corresponding libraries.
+To do so, please follow the tutorial at: http://www.cshtml5.com";
                 MessageBox.Show(@"Before you can use the Kendo Grid Control, you must add to your project the corresponding libraries.
 To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put the address of the tutorial.
                 base.AbortLoading();
@@ -196,8 +198,8 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 
             if (oldValue != newValue)
             {
-                await @this.JSInstanceLoaded;
-                
+                if(await @this.JSInstanceLoaded)
+                {
                     @this.setDataSource(new DataSource(new DataSourceOptions()
                     {
                         data = Utils.ToJSObject(e.NewValue)
@@ -206,13 +208,26 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
                     @this.RemoveOldColumns();
 
                     @this.firstDataLoad = false;
+                    @this._isInstanceLoaded = true;
+                }
+                else
+                {
+                    if(Configuration.AreSourcesSet)
+                    {
+                        @this.Html = @"The libraries for the Grid Control could not be found. Make sure you have added them in your project at the location you specified in the Configuration.";
+                        MessageBox.Show(@"The libraries for the Grid Control could not be found. Make sure you have added them in your project at the location you specified in the Configuration.");
+                    }
+                }
             }
         }
 
         protected override void OnJSInstanceUnloaded()
         {
-            base.OnJSInstanceUnloaded();
-            this.dataBinder.StopListeningToItemsChanges(this.ItemsSource);
+            if (_isInstanceLoaded)
+            {
+                base.OnJSInstanceUnloaded();
+                this.dataBinder.StopListeningToItemsChanges(this.ItemsSource);
+            }
         }
     }
 }
