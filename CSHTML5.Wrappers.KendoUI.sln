@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Common", "CSHTML5.Wrappers.KendoUI.Common\CSHTML5.Wrappers.KendoUI.Common.csproj", "{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}"
 EndProject
@@ -14,6 +14,24 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.Editor", "CSHTML5.Migration.Wrappers.KendoUI.Editor\CSHTML5.Migration.Wrappers.KendoUI.Editor.csproj", "{CA94BDD3-FC8B-44B2-8003-3C59E77CA672}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.Grid", "CSHTML5.Migration.Wrappers.KendoUI.Grid\CSHTML5.Migration.Wrappers.KendoUI.Grid.csproj", "{E1FB48C3-F52D-4740-BBEF-5E9C0474BDA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExtLibs", "ExtLibs", "{AB35A9A5-7CD1-42CF-901E-7A369A16EE1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{5C3A1F8D-EA08-41D1-A4B5-B71DCE823537}"
+	ProjectSection(SolutionItems) = preProject
+		ExtLibs\NuGet\nuget.exe = ExtLibs\NuGet\nuget.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUGET_PACKAGES", "NUGET_PACKAGES", "{364B2B43-4EA3-47D3-A72E-B07F4AEFD7B3}"
+	ProjectSection(SolutionItems) = preProject
+		NUGET_PACKAGES\Build NuGet packages.bat = NUGET_PACKAGES\Build NuGet packages.bat
+		NUGET_PACKAGES\CSHTML5.Migration.Wrappers.KendoUI.Common.nuspec = NUGET_PACKAGES\CSHTML5.Migration.Wrappers.KendoUI.Common.nuspec
+		NUGET_PACKAGES\CSHTML5.Migration.Wrappers.KendoUI.Editor.nuspec = NUGET_PACKAGES\CSHTML5.Migration.Wrappers.KendoUI.Editor.nuspec
+		NUGET_PACKAGES\CSHTML5.Migration.Wrappers.KendoUI.Grid.nuspec = NUGET_PACKAGES\CSHTML5.Migration.Wrappers.KendoUI.Grid.nuspec
+		NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Common.nuspec = NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Common.nuspec
+		NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Editor.nuspec = NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Editor.nuspec
+		NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Grid.nuspec = NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Grid.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +66,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C3A1F8D-EA08-41D1-A4B5-B71DCE823537} = {AB35A9A5-7CD1-42CF-901E-7A369A16EE1F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1340553C-8897-49A2-8EB6-5547DEA380D4}
 	EndGlobalSection
 EndGlobal

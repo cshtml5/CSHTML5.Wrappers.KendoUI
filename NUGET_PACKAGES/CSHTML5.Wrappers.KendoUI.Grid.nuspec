@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CSHTML5.Wrappers.KendoUI.Grid</id>
+    <version>1.0.0-alpha01-002</version>
+    <title>CSHTML5 KendoUI Grid v1.0 Alpha 1</title>
+    <authors>Userware</authors>
+    <owners />
+    <projectUrl>http://www.cshtml5.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Wrapper for the KendoUI Grid control for CSHTML5. Powered by Bridge.NET</description>
+    <copyright>Copyright (c) 2014-2019, Userware. All rights reserved.</copyright>
+    <tags>csharp C# xaml javascript html html5 compiler KendoUI Grid cshtml5 bridge bridge.net</tags>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <dependencies>
+      <dependency id="CSHTML5.Wrappers.KendoUI.Common" version="1.0.0-alpha01-001" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- KendoUI Grid runtime -->
+    <file src="../CSHTML5.Wrappers.KendoUI.Grid/bin/Debug/CSHTML5.Wrappers.KendoUI.Grid.dll" target="lib/net40/CSHTML5.Wrappers.KendoUI.Grid.dll" />
+    <file src="../CSHTML5.Wrappers.KendoUI.Grid/bin/Debug/CSHTML5.Wrappers.KendoUI.Grid.pdb" target="lib/net40/CSHTML5.Wrappers.KendoUI.Grid.pdb" />
+    <file src="../CSHTML5.Wrappers.KendoUI.Grid/bin/Debug/CSHTML5.Wrappers.KendoUI.Grid.xml" target="lib/net40/CSHTML5.Wrappers.KendoUI.Grid.xml" />
+
+    
+  </files>
+</package>
