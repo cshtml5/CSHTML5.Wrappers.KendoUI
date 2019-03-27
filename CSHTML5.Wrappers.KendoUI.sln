@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Common", "CSHTML5.Wrappers.KendoUI.Common\CSHTML5.Wrappers.KendoUI.Common.csproj", "{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}"
 EndProject
@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUGET_PACKAGES", "NUGET_PAC
 		NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Grid.nuspec = NUGET_PACKAGES\CSHTML5.Wrappers.KendoUI.Grid.nuspec
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.TreeView", "CSHTML5.Wrappers.KendoUI.TreeView\CSHTML5.Wrappers.KendoUI.TreeView.csproj", "{12FA9AB5-1209-48DD-9B74-CB0FA1F15B8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.TreeView", "CSHTML5.Migration.Wrappers.KendoUI.TreeView\CSHTML5.Migration.Wrappers.KendoUI.TreeView.csproj", "{1230194F-EFA9-408C-AC14-590E2D50064A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{E1FB48C3-F52D-4740-BBEF-5E9C0474BDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1FB48C3-F52D-4740-BBEF-5E9C0474BDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1FB48C3-F52D-4740-BBEF-5E9C0474BDA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12FA9AB5-1209-48DD-9B74-CB0FA1F15B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12FA9AB5-1209-48DD-9B74-CB0FA1F15B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12FA9AB5-1209-48DD-9B74-CB0FA1F15B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12FA9AB5-1209-48DD-9B74-CB0FA1F15B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1230194F-EFA9-408C-AC14-590E2D50064A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1230194F-EFA9-408C-AC14-590E2D50064A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1230194F-EFA9-408C-AC14-590E2D50064A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1230194F-EFA9-408C-AC14-590E2D50064A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
