@@ -170,6 +170,7 @@ declare namespace kendo.data {
 
     interface HierarchicalDataSourceOptions extends DataSourceOptions {
         schema?: HierarchicalDataSourceSchema;
+        data?: any; //CSHTML5 added because "extends" is currently ignored (that's a bug)
     }
 
 
