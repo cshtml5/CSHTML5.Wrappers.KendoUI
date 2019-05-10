@@ -51,12 +51,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSHTML5.Migration.Wrappers.KendoUI.Common\CSHTML5.Migration.Wrappers.KendoUI.Common.csproj">
-      <Project>{7d8e67d4-7033-4064-a0b8-8f281558eb54}</Project>
-      <Name>CSHTML5.Migration.Wrappers.KendoUI.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="kendo-ui-editor.d.ts" />
   </ItemGroup>
   <ItemGroup>

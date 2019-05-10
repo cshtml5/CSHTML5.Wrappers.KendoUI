@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Common", "CSHTML5.Wrappers.KendoUI.Common\CSHTML5.Wrappers.KendoUI.Common.csproj", "{FBC51A0B-2837-4A0C-A21C-994A3B0FD165}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Grid", "CSHTML5.Wrappers.KendoUI.Grid\CSHTML5.Wrappers.KendoUI.Grid.csproj", "{93EB26C0-B6AB-4E64-9642-12A499F53F63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Editor", "CSHTML5.Wrappers.KendoUI.Editor\CSHTML5.Wrappers.KendoUI.Editor.csproj", "{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.Common", "CSHTML5.Migration.Wrappers.KendoUI.Common\CSHTML5.Migration.Wrappers.KendoUI.Common.csproj", "{7D8E67D4-7033-4064-A0B8-8F281558EB54}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.Editor", "CSHTML5.Migration.Wrappers.KendoUI.Editor\CSHTML5.Migration.Wrappers.KendoUI.Editor.csproj", "{CA94BDD3-FC8B-44B2-8003-3C59E77CA672}"
 EndProject
@@ -37,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.KendoUI.Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.TreeView", "CSHTML5.Migration.Wrappers.KendoUI.TreeView\CSHTML5.Migration.Wrappers.KendoUI.TreeView.csproj", "{1230194F-EFA9-408C-AC14-590E2D50064A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Migration.Wrappers.KendoUI.Common", "CSHTML5.Migration.Wrappers.KendoUI.Common\CSHTML5.Migration.Wrappers.KendoUI.Common.csproj", "{7D8E67D4-7033-4064-A0B8-8F281558EB54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +55,6 @@ Global
 		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D947CDF3-EAEA-4184-B4A5-E641136DD7F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA94BDD3-FC8B-44B2-8003-3C59E77CA672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA94BDD3-FC8B-44B2-8003-3C59E77CA672}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA94BDD3-FC8B-44B2-8003-3C59E77CA672}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +71,10 @@ Global
 		{1230194F-EFA9-408C-AC14-590E2D50064A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1230194F-EFA9-408C-AC14-590E2D50064A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1230194F-EFA9-408C-AC14-590E2D50064A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8E67D4-7033-4064-A0B8-8F281558EB54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

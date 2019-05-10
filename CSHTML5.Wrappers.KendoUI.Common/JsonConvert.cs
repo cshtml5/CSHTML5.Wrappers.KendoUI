@@ -1,6 +1,4 @@
-﻿#define BRIDGE
-
-using CSHTML5;
+﻿using CSHTML5;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +22,7 @@ using System.Threading.Tasks;
 //------------------------------------
 
 
-namespace CSHTML5.Wrappers.KendoUI.Common.Json
+namespace Newtonsoft.Json
 {
     public static class JsonConvert
     {
@@ -32,7 +30,7 @@ namespace CSHTML5.Wrappers.KendoUI.Common.Json
 
         public static string SerializeObject(object objectToSerialize, bool ignoreErrors = false)
         {
-            var javaScriptObject = ConvertCSharpObjectToJavaScriptObject(objectToSerialize, ignoreErrors);
+            var javaScriptObject = ConvertCSharpObjectToJavaScriptObject(objectToSerialize, ignoreErrors, new HashSet2<object>());
             string serializedObject = Interop.ExecuteJavaScript(@"JSON.stringify($0)", javaScriptObject).ToString();
             return serializedObject;
         }
@@ -56,84 +54,100 @@ namespace CSHTML5.Wrappers.KendoUI.Common.Json
         #endregion
 
         #region Private Methods
-        static object ConvertCSharpObjectToJavaScriptObject(object cSharpObject, bool ignoreErrors)
+        static object ConvertCSharpObjectToJavaScriptObject(object cSharpObject, bool ignoreErrors, HashSet2<object> listOfParentsToAvoidCyclicReferences)
         {
-            if (cSharpObject is Enum || cSharpObject is Guid || cSharpObject is long)
+            if (cSharpObject != null && listOfParentsToAvoidCyclicReferences.Contains(cSharpObject))
             {
-                return cSharpObject.ToString();
-            }
-            else if (cSharpObject is DateTime)
-            {
-                //Uncomment when fully supported by CSHTML5:
-                //return ((DateTime)cSharpObject).ToUniversalTime().ToString("s", System.Globalization.CultureInfo.InvariantCulture);
-
-                var dateTimeUtc = ((DateTime)cSharpObject).ToUniversalTime();
-                TimeSpan timeSince1970 = (dateTimeUtc - new DateTime(1970, 1, 1, 0, 0, 0));
-                double millisecondsSince1970 = timeSince1970.TotalMilliseconds;
-                var jsDate = Interop.ExecuteJavaScript("new Date($0)", millisecondsSince1970);
-                string json = Convert.ToString(Interop.ExecuteJavaScript("$0.toJSON()", jsDate));
-                return json;
-            }
-            else if (cSharpObject is string
-#if !BRIDGE
- || (cSharpObject != null && cSharpObject.GetType().IsValueType)
-#endif
-)
-            {
-                return cSharpObject;
-            }
-#if BRIDGE
-            else if (cSharpObject != null && cSharpObject.GetType().IsValueType)
-            {
-                return Interop.ExecuteJavaScript("$0.v", cSharpObject);
-            }
-#endif
-            else if (cSharpObject is IEnumerable && !(cSharpObject is string))
-            {
-                //----------------
-                // ARRAY
-                //----------------
-
-                // Create the JS array:
-                var jsArray = Interop.ExecuteJavaScript("[]");
-
-                // Traverse the enumerable:
-                foreach (var cSharpItem in (IEnumerable)cSharpObject)
-                {
-                    var jsItem = ConvertCSharpObjectToJavaScriptObject(cSharpItem, ignoreErrors);
-                    Interop.ExecuteJavaScript("$0.push($1)", jsArray, jsItem);
-                }
-
-                return jsArray;
-            }
-            else if (cSharpObject != null)
-            {
-                //----------------
-                // OBJECT
-                //----------------
-
-                var jsObject = Interop.ExecuteJavaScript(@"new Object()");
-
-                // Traverse all properties:
-                foreach (PropertyInfo property in cSharpObject.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public))
-                {
-                    string propertyName = property.Name;
-                    object propertyValue = property.GetValue(cSharpObject);
-
-                    if (propertyValue != null)
-                    {
-                        var recursionResult = ConvertCSharpObjectToJavaScriptObject(propertyValue, ignoreErrors);
-                        if (recursionResult != null)
-                        {
-                            Interop.ExecuteJavaScript(@"$0[$1] = $2;", jsObject, propertyName, recursionResult);
-                        }
-                    }
-                }
-
-                return jsObject;
+                return null; //to avoid circular references, which "JSON.stringify" does not handle without specifying what to do in case of circulare reference (cf. https://stackoverflow.com/questions/10392293/stringify-convert-to-json-a-javascript-object-with-circular-reference )
             }
             else
-                return Interop.ExecuteJavaScript("undefined");
+            {
+                listOfParentsToAvoidCyclicReferences.Add(cSharpObject);
+                object returnValue;
+
+                if (cSharpObject is Enum || cSharpObject is Guid || cSharpObject is long)
+                {
+                    returnValue = cSharpObject.ToString();
+                }
+                else if (cSharpObject is DateTime)
+                {
+                    //Uncomment when fully supported by CSHTML5:
+                    //return ((DateTime)cSharpObject).ToUniversalTime().ToString("s", System.Globalization.CultureInfo.InvariantCulture);
+
+                    var dateTimeUtc = ((DateTime)cSharpObject).ToUniversalTime();
+                    TimeSpan timeSince1970 = (dateTimeUtc - new DateTime(1970, 1, 1, 0, 0, 0));
+                    double millisecondsSince1970 = timeSince1970.TotalMilliseconds;
+                    var jsDate = Interop.ExecuteJavaScript("new Date($0)", millisecondsSince1970);
+                    string json = Convert.ToString(Interop.ExecuteJavaScript("$0.toJSON()", jsDate));
+                    returnValue = json;
+                }
+                else if (cSharpObject is string
+#if !BRIDGE
+                   || (cSharpObject != null && cSharpObject.GetType().IsValueType)
+#endif
+                )
+                {
+                    returnValue = cSharpObject;
+                }
+#if BRIDGE
+                else if (cSharpObject != null && cSharpObject.GetType().IsValueType)
+                {
+                    returnValue = Interop.ExecuteJavaScript("$0.v", cSharpObject);
+                }
+#endif
+                else if (cSharpObject is IEnumerable && !(cSharpObject is string))
+                {
+                    //----------------
+                    // ARRAY
+                    //----------------
+
+                    // Create the JS array:
+                    var jsArray = Interop.ExecuteJavaScript("[]");
+
+                    // Traverse the enumerable:
+                    foreach (var cSharpItem in (IEnumerable)cSharpObject)
+                    {
+                        var jsItem = ConvertCSharpObjectToJavaScriptObject(cSharpItem, ignoreErrors, listOfParentsToAvoidCyclicReferences);
+                        Interop.ExecuteJavaScript("$0.push($1)", jsArray, jsItem);
+                    }
+
+                    returnValue = jsArray;
+                }
+                else if (cSharpObject != null)
+                {
+                    //----------------
+                    // OBJECT
+                    //----------------
+
+                    var jsObject = Interop.ExecuteJavaScript(@"new Object()");
+
+                    // Traverse all properties:
+                    foreach (PropertyInfo property in cSharpObject.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public))
+                    {
+                        string propertyName = property.Name;
+                        object propertyValue = property.GetValue(cSharpObject);
+
+                        if (propertyValue != null)
+                        {
+                            var recursionResult = ConvertCSharpObjectToJavaScriptObject(propertyValue, ignoreErrors, listOfParentsToAvoidCyclicReferences);
+                            if (recursionResult != null)
+                            {
+                                Interop.ExecuteJavaScript(@"$0[$1] = $2;", jsObject, propertyName, recursionResult);
+                            }
+                        }
+                    }
+
+                    returnValue = jsObject;
+                }
+                else
+                {
+                    returnValue = Interop.ExecuteJavaScript("undefined");
+                }
+
+                listOfParentsToAvoidCyclicReferences.Remove(cSharpObject);
+
+                return returnValue;
+            }
         }
 
         static object ConvertCSharpNestedDictionariesAndListsToCSharpObject(Type resultType, object cSharpNestedDictionariesAndLists, bool ignoreErrors)

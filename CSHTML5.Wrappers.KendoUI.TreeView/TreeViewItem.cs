@@ -30,6 +30,10 @@ namespace CSHTML5.Wrappers.KendoUI.TreeView //Note: used the same namespace as C
 
         public string image { get; set; }
 
+        public TreeViewItem()
+        {
+        }
+
         public TreeViewItem(string initText, string initImage, ObservableCollection<TreeViewItem> initItems)
         {
             text = initText;

@@ -103,7 +103,11 @@ namespace CSHTML5.Wrappers.KendoUI.Common
                 object newValue = null;
                 try
                 {
+#if CSHTML5
+                    if (INTERNAL_BridgeWorkarounds.MethodInfoIsStatic_SimulatorCompatible(prop.GetMethod))
+#else
                     if (prop.GetMethod.IsStatic) //have to check for that because for some reason Bridge throws an Exception when trying to call prop.GetValue(item) when it is a static property.
+#endif
                     {
                         newValue = prop.GetValue(null);
                     }

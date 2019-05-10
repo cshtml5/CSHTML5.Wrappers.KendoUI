@@ -1,4 +1,4 @@
-﻿using CSHTML5.Wrappers.KendoUI.Common.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +13,49 @@ namespace CSHTML5.Wrappers.KendoUI.Common
     {
         public static JSObject ToJSObject(object o)
         {
-            return new JSObject(Interop.ExecuteJavaScript("JSON.parse($0)", JsonConvert.SerializeObject(o)));
+            string serialized = JsonConvert.SerializeObject(o);
+            object json = Interop.ExecuteJavaScript("JSON.parse($0)", serialized);
+            return new JSObject(json);
+        }
+
+        public static JSObject CSharpEnumerableToJSObject(IEnumerable cSharpEnumerable, List<string> columnsPropertyPaths)
+        {
+            var jsArray = Interop.ExecuteJavaScript("[]");
+
+            // Traverse the enumerable:
+            foreach (var cSharpItem in (IEnumerable)cSharpEnumerable)
+            {
+                var jsItem = CSharpObjectJSObject(cSharpItem, columnsPropertyPaths);
+                Interop.ExecuteJavaScript("$0.push($1)", jsArray, jsItem);
+            }
+
+            return new JSObject(jsArray);
+        }
+
+        public static object CSharpObjectJSObject(object cSharpObject, List<string> columnsPropertyPaths)
+        {
+            var jsObject = Interop.ExecuteJavaScript("new Object()");
+
+            foreach (string columnPropertyPath in columnsPropertyPaths)
+            {
+                // Read the property value:
+                object propertyValue = GetNestedPropertyValue(cSharpObject, columnPropertyPath);
+
+                // Get the property name:
+                string propertyName;
+                if (columnPropertyPath.LastIndexOf(".") > -1)
+                    propertyName = columnPropertyPath.Substring(columnPropertyPath.LastIndexOf(".") + 1);
+                else
+                    propertyName = columnPropertyPath;
+
+                if (propertyValue != null)
+                {
+                    string propertyValueString = propertyValue.ToString();
+                    Interop.ExecuteJavaScript(@"$0[$1] = $2;", jsObject, propertyName, propertyValueString);
+                }
+            }
+
+            return jsObject;
         }
 
         public static object GetNestedPropertyValue(object obj, string path)

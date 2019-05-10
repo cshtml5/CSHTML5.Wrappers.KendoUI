@@ -27,59 +27,60 @@ declare namespace kendo {
     
     var ns: string;
 
-    var keys: {
-        INSERT: number;
-        DELETE: number;
-        BACKSPACE: number;
-        TAB: number;
-        ENTER: number;
-        ESC: number;
-        LEFT: number;
-        UP: number;
-        RIGHT: number;
-        DOWN: number;
-        END: number;
-        HOME: number;
-        SPACEBAR: number;
-        PAGEUP: number;
-        PAGEDOWN: number;
-        F2: number;
-        F10: number;
-        F12: number;
-        NUMPAD_PLUS: number;
-        NUMPAD_MINUS: number;
-        NUMPAD_DOT: number;
-    };
+    //todo: uncomment the following block when the following issue is fixed: when two projects have typescript definition files, multiple "anonymoustype" classes are generated that conflict with each other (to fix: place them in separate namespaces)
+    //var keys: {
+    //    INSERT: number;
+    //    DELETE: number;
+    //    BACKSPACE: number;
+    //    TAB: number;
+    //    ENTER: number;
+    //    ESC: number;
+    //    LEFT: number;
+    //    UP: number;
+    //    RIGHT: number;
+    //    DOWN: number;
+    //    END: number;
+    //    HOME: number;
+    //    SPACEBAR: number;
+    //    PAGEUP: number;
+    //    PAGEDOWN: number;
+    //    F2: number;
+    //    F10: number;
+    //    F12: number;
+    //    NUMPAD_PLUS: number;
+    //    NUMPAD_MINUS: number;
+    //    NUMPAD_DOT: number;
+    //};
 
-    var support: {
-        touch: boolean;
-        pointers: boolean;
-        scrollbar(): number;
-        hasHW3D: boolean;
-        hasNativeScrolling: boolean;
-        devicePixelRatio: number;
-        placeholder: boolean;
-        zoomLevel: number;
-        mobileOS: {
-            device: string;
-            tablet: any;
-            browser: string;
-            name: string;
-            majorVersion: string;
-            minorVersion: string;
-            flatVersion: number;
-            appMode: boolean;
-        };
-        browser: {
-            edge: boolean;
-            msie: boolean;
-            webkit: boolean;
-            safari: boolean;
-            opera: boolean;
-            mozilla: boolean;
-            version: string;
-        };
-    };
+    //var support: {
+    //    touch: boolean;
+    //    pointers: boolean;
+    //    scrollbar(): number;
+    //    hasHW3D: boolean;
+    //    hasNativeScrolling: boolean;
+    //    devicePixelRatio: number;
+    //    placeholder: boolean;
+    //    zoomLevel: number;
+    //    mobileOS: {
+    //        device: string;
+    //        tablet: any;
+    //        browser: string;
+    //        name: string;
+    //        majorVersion: string;
+    //        minorVersion: string;
+    //        flatVersion: number;
+    //        appMode: boolean;
+    //    };
+    //    browser: {
+    //        edge: boolean;
+    //        msie: boolean;
+    //        webkit: boolean;
+    //        safari: boolean;
+    //        opera: boolean;
+    //        mozilla: boolean;
+    //        version: string;
+    //    };
+    //};
 
     var version: string;
 
@@ -136,9 +137,9 @@ declare namespace kendo.data {
         idField: string;
         _defaultId: any;
         fields: DataSourceSchemaModelFields;
-        defaults: {
-            [field: string]: any;
-        };
+        //defaults: {
+        //    [field: string]: any;
+        //};
         id: any;
         dirty: boolean;
 
