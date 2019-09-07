@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 //------------------------------------
 
 
-namespace Newtonsoft.Json
+namespace CSHTML5.Wrappers.KendoUI.Common
 {
     public static class JsonConvert
     {

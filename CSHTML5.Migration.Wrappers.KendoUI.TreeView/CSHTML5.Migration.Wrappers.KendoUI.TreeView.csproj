@@ -37,20 +37,6 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bridge, Version=17.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\lib\net40\Bridge.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CSHTML5.Migration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\lib\net40\CSHTML5.Migration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CSHTML5.Stubs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\lib\net40\CSHTML5.Stubs.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\CSHTML5.Wrappers.KendoUI.TreeView\Configuration.cs">
       <Link>Configuration.cs</Link>
     </Compile>
@@ -65,9 +51,7 @@
   <ItemGroup>
     <None Include="bridge.json" />
     <None Include="CSHTML5.Migration.Wrappers.KendoUI.TreeView.nuspec" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\CSHTML5.Wrappers.KendoUI.TreeView\scripts\jquery.min.js">
@@ -83,12 +67,26 @@
       <Name>CSHTML5.Migration.Wrappers.KendoUI.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\build\CSHTML5.Migration.WorkInProgress.targets" Condition="Exists('..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\build\CSHTML5.Migration.WorkInProgress.targets')" />
+  <ItemGroup>
+    <Reference Include="Bridge, Version=17.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\lib\net40\Bridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CSHTML5.Migration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\lib\net40\CSHTML5.Migration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CSHTML5.Stubs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\lib\net40\CSHTML5.Stubs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\build\CSHTML5.Migration.WorkInProgress.targets" Condition="Exists('..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\build\CSHTML5.Migration.WorkInProgress.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\build\CSHTML5.Migration.WorkInProgress.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha29-044\build\CSHTML5.Migration.WorkInProgress.targets'))" />
+    <Error Condition="!Exists('..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\build\CSHTML5.Migration.WorkInProgress.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CSHTML5.Migration.WorkInProgress.2.0.0-alpha45-063\build\CSHTML5.Migration.WorkInProgress.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
