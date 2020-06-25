@@ -92,7 +92,7 @@ namespace CSHTML5.Wrappers.KendoUI.Common
 #if BRIDGE
                 else if (cSharpObject != null && cSharpObject.GetType().IsValueType)
                 {
-                    returnValue = Interop.ExecuteJavaScript("$0.v", cSharpObject);
+                    returnValue = Interop.Unbox(cSharpObject);
                 }
 #endif
                 else if (cSharpObject is IEnumerable && !(cSharpObject is string))
